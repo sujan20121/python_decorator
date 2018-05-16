@@ -8,6 +8,10 @@ they also help reduce the clutter in the functions, allowing for better
 code readability.
 	'''
 	def wrapper(*args,**kwargs):
+	'''
+	Here the wrapper() function holds the core components
+	of the decorator.
+	'''
 		start = time.time()
 		result = func(*args,**kwargs)
 		end = time.time()
@@ -15,7 +19,7 @@ code readability.
 		return result
 	return wrapper
 	
-@time_it
+@time_it #this step is called decoration
 def calc_square(numbers):
 	result = []
 	for number in numbers:
@@ -31,5 +35,9 @@ def calc_cube(numbers):
 
 array = range(1,19000)
 out_square = calc_square(array)
+	'''
+	Upon calling the function calc_square(), the decorator
+	is called first
+	'''
 out_cube = calc_cube(array)
 	
